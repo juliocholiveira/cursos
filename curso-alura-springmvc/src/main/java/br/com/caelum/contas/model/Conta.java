@@ -2,11 +2,14 @@ package br.com.caelum.contas.model;
 
 import java.util.Calendar;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Conta {
 	private Long id;
 	private String descricao;
 	private boolean paga;
 	private double valor;
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar dataPagamento;
 	private TipoDaConta tipo;
 
