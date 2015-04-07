@@ -2,11 +2,20 @@ package br.com.caelum.contas.model;
 
 import java.util.Calendar;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Conta {
 	private Long id;
+
+	// Utiliza o Bean Validation com o Hibernate Validation para validar os campos
+	@NotNull(message="{conta.formulario.descricao.obrigatoria}") 
+	@Size(min=3, message="{conta.formulario.descricao.tamanho}")
 	private String descricao;
+	
 	private boolean paga;
 	private double valor;
 	@DateTimeFormat(pattern="dd/MM/yyyy")

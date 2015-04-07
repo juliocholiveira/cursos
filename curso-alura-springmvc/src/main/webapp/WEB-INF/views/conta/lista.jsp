@@ -8,6 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<script type="text/javascript" src="resources/js/jquery-2.1.3.js"></script>
+<script type="text/javascript" src="resources/js/scriptConta.js"></script>
 <body>
 	<table style="height: 10px; width: 775px;" border="1">
 		<thead>
@@ -35,6 +37,10 @@
 				<td><fmt:formatDate value="${conta.dataPagamento.time }" pattern="dd/MM/yyyy"/></td>
 				<td><a href="removeConta?id=${conta.id }">Remover</a></td>
 				<td><a href="mostraConta?id=${conta.id }">Mostrar</a></td>
+				<td id="conta_${conta.id }">
+					<c:if test="${conta.paga eq false }"><a href="#" onclick="pagaAgoraPost(${conta.id });">Pagar</a></c:if>
+					<c:if test="${conta.paga eq true }">Paga</c:if>				
+				</td>
 			</tr>
 		</c:forEach>
 		

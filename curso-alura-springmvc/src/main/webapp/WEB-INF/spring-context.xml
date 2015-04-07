@@ -12,6 +12,9 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<!-- Habilitar o uso de anotações e configurar o pacote base da aplicação web -->
 	<context:component-scan base-package="br.com.caelum.contas" />
 	<mvc:annotation-driven />
+	
+	<!-- Habilita o uso de recursos permitindo que o spring acesse os arquivos da pasta resources -->
+	<mvc:default-servlet-handler/>
 
 	<!-- Local onde ficará os arquivos JSPs -->
 	<bean
