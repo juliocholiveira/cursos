@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -11,10 +14,20 @@ import br.com.caelum.contas.ConnectionFactory;
 
 @Controller
 public class InfraController {
+	
+	private Connection c;
+
+	@Autowired
+	public InfraController(DataSource ds) {
+		try {
+			this.c = ds.getConnection();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	@RequestMapping("/tabelas")
 	public String criaBanco() throws SQLException {
-		Connection c = new ConnectionFactory().getConnection();
 		PreparedStatement st1 = c.prepareStatement("drop table contas if exists");
 		st1.execute();
 

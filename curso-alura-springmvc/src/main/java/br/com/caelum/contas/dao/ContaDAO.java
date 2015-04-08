@@ -9,16 +9,23 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import br.com.caelum.contas.ConnectionFactory;
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import br.com.caelum.contas.model.Conta;
 import br.com.caelum.contas.model.TipoDaConta;
 
+@Repository
 public class ContaDAO {
 	private Connection connection;
 
-	public ContaDAO() {
+	@Autowired
+	public ContaDAO(DataSource ds) {
 		try {
-			this.connection = new ConnectionFactory().getConnection();
+			//this.connection = new ConnectionFactory().getConnection();
+			this.connection = ds.getConnection();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -34,7 +41,6 @@ public class ContaDAO {
 			stmt.setDouble(3, conta.getValor());
 			stmt.setString(4, conta.getTipo().name());
 			stmt.execute();
-			connection.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -54,7 +60,6 @@ public class ContaDAO {
 			stmt.setLong(1, conta.getId());
 			stmt.execute();
 			
-			connection.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -74,7 +79,6 @@ public class ContaDAO {
 			stmt.setLong(6, conta.getId());
 			stmt.execute();
 			
-			connection.close();
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -96,7 +100,6 @@ public class ContaDAO {
 
 			rs.close();
 			stmt.close();
-			connection.close();
 
 			return contas;
 		} catch (SQLException e) {
@@ -118,7 +121,6 @@ public class ContaDAO {
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
-				connection.close();
 				return populaConta(rs);
 			}
 
@@ -126,7 +128,6 @@ public class ContaDAO {
 			stmt.close();
 			
 
-			connection.close();
 			return null;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -148,7 +149,6 @@ public class ContaDAO {
 			stmt.setLong(3, id);
 			stmt.execute();
 			
-			connection.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

@@ -17,8 +17,21 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<!-- Habilita o uso de recursos permitindo que o spring acesse os arquivos 
 		da pasta resources -->
 	<mvc:default-servlet-handler />
+	
+	<!-- Configurando o interceptor -->
+	<mvc:interceptors>
+		<bean class="br.com.caelum.contas.interceptor.AutorizadorInterceptor"/>
+	</mvc:interceptors>
+	
+	<!-- Configurando um datasource -->
+	<bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+		<property name="url" value="jdbc:hsqldb:file:contas.db"/>
+		<property name="username" value="sa"/>
+		<property name="password" value=""/>
+	</bean>
 
-	<!-- Local onde ficará os arquivos JSPs -->
+	<!-- Local onde ficarão os arquivos JSPs -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />

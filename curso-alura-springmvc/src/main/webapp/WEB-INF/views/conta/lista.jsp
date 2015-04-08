@@ -11,6 +11,7 @@
 <script type="text/javascript" src="resources/js/jquery-2.1.3.js"></script>
 <script type="text/javascript" src="resources/js/scriptConta.js"></script>
 <body>
+	<a href="logout">Clique aqui </a>para fazer o logout.
 	<table style="height: 10px; width: 775px;" border="1">
 		<thead>
 			<tr>

@@ -3,10 +3,10 @@ package br.com.caelum.contas.controller;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -16,6 +16,17 @@ import br.com.caelum.contas.model.Conta;
 
 @Controller
 public class ContaController {
+	
+	private ContaDAO dao;
+	
+	/*
+	 * Informa ao spring que deve injetar a dependência, ou seja, passar ao construtor
+	 * o parâmetro ContaDAO já instanciado
+	 * */
+	@Autowired
+	public ContaController(ContaDAO dao) {
+		this.dao = dao;
+	}
 	
 	@RequestMapping("/formConta")
 	public String formularioConta(){
@@ -38,7 +49,6 @@ public class ContaController {
 			return "conta/formulario";
 		}
 		
-		ContaDAO dao = new ContaDAO();		
 		dao.adiciona(conta);
 		
 		return "conta/conta-adicionada";
@@ -46,11 +56,8 @@ public class ContaController {
 	
 	@RequestMapping("/listaContas")
 	public ModelAndView lista(){
-		ContaDAO dao = new ContaDAO();
-		
 		ModelAndView mv = new ModelAndView("conta/lista");
 		mv.addObject("contas", dao.lista());
-		
 		return mv;
 	}
 	
@@ -58,16 +65,12 @@ public class ContaController {
 	 * sendo que devemos receber como parï¿½metro */
 	@RequestMapping("/listaContasComModel")
 	public String listaComModel(Model m){
-		ContaDAO dao = new ContaDAO();
-		
 		m.addAttribute("contas", dao.lista());
-		
 		return "conta/lista";
 	}
 	
 	@RequestMapping("/removeConta")
 	public String remove(Conta conta){
-		ContaDAO dao = new ContaDAO();
 		dao.remove(conta);
 		
 		/*
@@ -79,14 +82,12 @@ public class ContaController {
 	
 	@RequestMapping("/mostraConta")
 	public String mostra(Long id, Model m){
-		ContaDAO dao = new ContaDAO();
 		m.addAttribute("conta", dao.buscaPorId(id));
 		return "conta/mostra";
 	}
 	
 	@RequestMapping("/alteraConta")
 	public String altera(Conta conta){
-		ContaDAO dao = new ContaDAO();
 		dao.altera(conta);
 		return "redirect:listaContas";
 	}
@@ -101,7 +102,6 @@ public class ContaController {
 	
 	@RequestMapping("/pagaConta")
 	public void pagaConta(Conta conta, HttpServletResponse response){
-		ContaDAO dao = new ContaDAO();
 		dao.paga(conta.getId());
 		response.setStatus(200);
 	}

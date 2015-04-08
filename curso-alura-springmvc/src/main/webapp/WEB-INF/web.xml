@@ -3,7 +3,12 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 	<display-name>Archetype Created Web Application</display-name>
-
+	
+	<!-- Configura o tempo da sessão do usuário -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	
 	<!-- Configuração do Spring MVC -->
 	<servlet>
 		<servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
