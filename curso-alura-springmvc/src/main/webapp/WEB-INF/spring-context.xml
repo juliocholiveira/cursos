@@ -9,12 +9,14 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<!-- Habilitar o uso de anotações e configurar o pacote base da aplicação web -->
+	<!-- Habilitar o uso de anotações e configurar o pacote base da aplicação 
+		web -->
 	<context:component-scan base-package="br.com.caelum.contas" />
 	<mvc:annotation-driven />
-	
-	<!-- Habilita o uso de recursos permitindo que o spring acesse os arquivos da pasta resources -->
-	<mvc:default-servlet-handler/>
+
+	<!-- Habilita o uso de recursos permitindo que o spring acesse os arquivos 
+		da pasta resources -->
+	<mvc:default-servlet-handler />
 
 	<!-- Local onde ficará os arquivos JSPs -->
 	<bean
@@ -22,14 +24,19 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
+
 	<!-- Configurando a classe que converte enum -->
 	<bean id="conversionService"
-          class="org.springframework.context.support.ConversionServiceFactoryBean">
-        <property name="converters">
-            <list>
-                <bean class="br.com.caelum.contas.StringToEnumConverterFactory"/>
-            </list>
-        </property>
-    </bean>	
+		class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="br.com.caelum.contas.StringToEnumConverterFactory" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/messages" />
+	</bean>
 </beans>
