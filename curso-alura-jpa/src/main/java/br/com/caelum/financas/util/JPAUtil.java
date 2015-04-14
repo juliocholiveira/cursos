@@ -8,7 +8,7 @@ public class JPAUtil {
 	
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("financas-mysql");
 	
-	public EntityManager getEntityMnager(){
+	public EntityManager getEntityManager(){
 		return emf.createEntityManager();
 	}
 
