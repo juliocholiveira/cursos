@@ -12,13 +12,14 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 
 		<!-- Lista todas as entidades mapeadas -->
 		<class>br.com.caelum.financas.modelo.Conta</class>
+		<class>br.com.caelum.financas.modelo.Movimentacao</class>
 
 		<properties>
 			<!-- propriedades JDBC -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/alura_financas" />
-			<property name="javax.persistence.jdbc.user" value="webapp" />
-			<property name="javax.persistence.jdbc.password" value="123456" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="rn850301" />
 
 			<!-- propriedades do Hibernate -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
