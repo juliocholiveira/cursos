@@ -33,7 +33,7 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 		
 		String uri = request.getRequestURI();
 		
-		if (uri.endsWith("formLogin") || uri.endsWith("formUsuario") || uri.endsWith("adicionaUsuario") || uri.endsWith("efetuaLogin") || uri.contains("resources")){
+		if (uri.endsWith("formLogin") || uri.endsWith("formUsuario") || uri.endsWith("adicionaUsuario") || uri.endsWith("efetuaLogin") || uri.endsWith("tabelas") || uri.contains("resources")){
 			return true;
 		}
 		

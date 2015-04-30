@@ -24,6 +24,11 @@
 			<option value="ENTRADA">Entrada</option>
 			<option value="SAIDA">Saída</option>
 		</select><br/><br/>
+		Tipo:
+		<select name="paga">
+			<option value="true">Sim</option>
+			<option value="false">Não</option>
+		</select><br/><br/>
 		<input type="submit" value="Adicionar">
 	</form>
 </body>
