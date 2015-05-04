@@ -27,7 +27,7 @@ public class TestaMovimentacaoConta {
 			System.out.println("Total de movimentações: " + conta2.getMovimentacoes().size());
 		}*/
 		
-		Conta c = new Conta();
+		/*Conta c = new Conta();
 		c = em.find(Conta.class, 2);
 		
 		Query query = em.createQuery("select m from Movimentacao m where m.conta = :pConta");
@@ -39,7 +39,11 @@ public class TestaMovimentacaoConta {
 			System.out.println(movimentacao.getDescricao());
 		}
 		
-		System.out.println("Fim");
+		System.out.println("Fim");*/
+		
+		Movimentacao m = em.find(Movimentacao.class, 1);
+		
+		System.out.println(m.getConta().getTitular() );
 				
 		
 	}
