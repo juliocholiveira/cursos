@@ -1,0 +1,69 @@
+/* Utilização de Media Queries e mobile-first */
+.secao {
+	width: 100%;
+}
+
+@media ( min-width : 600px) {
+	html {
+		font-size: 1.125em;
+	}
+	.secao {
+		float: left;
+		width: 50%;
+	}
+}
+
+@media ( min-width : 1000px) {
+	html {
+		font-size: 1.25em;
+	}
+	.secao {
+		float: left;
+		width: 33.333%;
+	}
+}
+
+header {
+	padding: 0.5em 0;
+}
+
+.destaques {
+	margin-top: 1em;
+}
+
+.barra-nav {
+	margin: 0.4em 0;
+}
+
+.container {
+	/* Define o tamanho máximo da página*/
+	max-width: 1200px;
+	/* Centraliza a página*/
+	margin: 0 auto;
+}
+
+.logo, .secao {
+	padding: 0 1%;
+}
+
+.logo, .busca, .barra-nav, .menu-principal {
+	/* O inline-block é interessante por simular uma linha de texto 
+	com seus elementos. Se não cabe mais um "caracter" na linha, 
+	a "palavra" escorrega pra linha de baixo.*/
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.menu-principal li {
+	float: left;
+}
+
+.mini {
+	float: left;
+	width: 50%;
+}
+
+img {
+	/* Define o tamanho máximo da imagem, mantendo a proporção */
+	max-width: 100%;
+}
