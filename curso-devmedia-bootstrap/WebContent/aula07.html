@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Curso Bootstrap 3</title>
+<!-- Define a viwport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<!-- Adiciona o CSS bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<!-- Estilo personalizado -->
+<link href="css/estilo.css" rel="stylesheet" media="screen">
+</head>
+<body>
+
+	<!-- Esta aula fala sobre o aninhamento de grids e de offset -->
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<div class="row">
+					<div class="col-xd-12 col-sm-4">1</div>
+					<div class="col-xd-12 col-sm-4">2</div>
+					<div class="col-xd-12 col-sm-4">3</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6">texto 2
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xd-12 col-sm-4 col-sm-offset-8 linhaCinza">ocupa 4 posições a direita</div>		
+		</div>
+	</div>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
