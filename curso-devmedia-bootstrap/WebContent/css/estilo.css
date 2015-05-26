@@ -1,3 +1,7 @@
+body {
+	padding-top: 70px;
+}
+
 .linhaCinza{
 	background: gray;
 }
@@ -7,3 +11,5 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+
+.navbar-defaultBB{background-color:#ecca4c;border-color:#e7e7e7}
