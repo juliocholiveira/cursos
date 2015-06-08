@@ -13,3 +13,7 @@ body {
 }
 
 .navbar-defaultBB{background-color:#ecca4c;border-color:#e7e7e7}
+
+.bg-color-padding p {
+	padding: 15px;
+}

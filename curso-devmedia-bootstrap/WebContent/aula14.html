@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Curso Bootstrap 3</title>
+<!-- Define a viwport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<!-- Adiciona o CSS bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet" media="all">
+<!-- Estilo personalizado -->
+<link href="css/estilo.css" rel="stylesheet" media="all">
+</head>
+<body>
+
+	<!-- Esta aula fala sobre o Responsive Utilities -->
+	
+	<div class="container">
+	
+		<div class="row">
+		
+			<div class="col-xs-12">
+			
+				<h1 class="visible-print-block">Exibir somente na impressão da página</h1>
+				<h1 class="hidden-print">Exibir somente na página</h1>
+			
+			</div>
+		
+			<div class="col-xs-12 bg-color-padding">
+			
+				<h1>Responsive Utilities</h1>
+				
+				<p class="bg-primary visible-xs-block">Resolução XS</p>
+				<p class="bg-success visible-sm-block">Resolução SM</p>
+				<p class="bg-info visible-md-block">Resolução MD</p>
+				<p class="bg-danger visible-lg-block">Resolução LG</p>
+				
+				<a href="#" class="btn btn-primary hidden-xs hidden-sm">Acesse a versão mobile.</a>
+			
+			</div>
+
+			<div class="col-xs-12 bg-color-padding">
+			
+				<h1>Tipos</h1>
+				
+				<a href="#" class="visible-xs-block visible-sm-block visible-md-block btn btn-primary">Block</a>
+				<a href="#" class="visible-sm-inline visible-md-inline btn btn-primary">Inline</a>
+				<a href="#" class="visible-sm-inline-block visible-md-inline-block btn btn-primary">Inline-Block</a>
+				
+			</div>
+		
+		</div>
+		
+	</div>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
