@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Curso Bootstrap 3</title>
+<!-- Define a viwport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<!-- Adiciona o CSS bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet" media="all">
+<!-- Estilo personalizado -->
+<link href="css/estilo.css" rel="stylesheet" media="all">
+</head>
+<body>
+
+	<!-- Esta aula fala sobre o input groups -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="pageheader">
+
+					<h1>Janelas modais</h1>
+					
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal01">Abrir janela modal</button>
+					
+					<!-- Janela modal -->
+					<div id="modal01" class="modal fade" role="dialog" tabindex="-1">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">
+										<span aria-hidden>&times;</span>
+									</button>
+									<h4 class="modal-title">Janela Modal</h4>
+								</div>
+								<div class="modal-body">
+									<p>Conteúdo da janela modal</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- // Janela modal -->
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
