@@ -3,9 +3,9 @@ package br.com.casadocodigo.loja.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
-@Transactional
+@Repository
 public class GenericDAO<T> {
 
 	@PersistenceContext
