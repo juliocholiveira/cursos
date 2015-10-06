@@ -1,5 +1,7 @@
 package br.com.caelum.contas.interceptor;
 
+import java.util.Collection;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

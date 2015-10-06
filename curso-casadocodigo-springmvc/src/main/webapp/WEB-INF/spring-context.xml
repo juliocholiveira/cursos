@@ -12,11 +12,11 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd
 http://www.springframework.org/schema/tx
 http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-	<!-- Configurar o pacote base da aplicação web -->
+	<!-- Habilitar o uso de anotações e configurar o pacote base da aplicação 
+		web -->
 	<context:component-scan base-package="br.com.casadocodigo.loja" />
-
-	<!-- Habilitar o uso de anotações -->
 	<mvc:annotation-driven />
+	<tx:annotation-driven />
 
 	<!-- Habilita o uso de recursos permitindo que o spring acesse os arquivos 
 		da pasta resources -->
@@ -34,8 +34,8 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
 			value="jdbc:mysql://localhost/curso-casadocodigo-springmvc" />
-		<property name="username" value="root" />
-		<property name="password" value="rn850301" />
+		<property name="username" value="webapp" />
+		<property name="password" value="12345678" />
 	</bean>
 
 	<!-- Configurando o EntityManagerFactory -->
@@ -47,13 +47,10 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 		</property>
 	</bean>
 
-	<!-- Habilita o controle transacional -->
+
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-
-	<!-- Habilita o uso de transações com anotações -->
-	<tx:annotation-driven />
 
 	<!-- Configurando o interceptor <mvc:interceptors> <bean class="br.com.caelum.contas.interceptor.AutorizadorInterceptor"/> 
 		</mvc:interceptors> -->
