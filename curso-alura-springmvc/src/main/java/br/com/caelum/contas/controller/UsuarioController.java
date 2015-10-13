@@ -22,7 +22,7 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/formLogin")
-	public String formLogin(){
+	public String formLogin(){		
 		return "usuario/formulario-login";
 	}
 	
@@ -40,13 +40,14 @@ public class UsuarioController {
 	
 	@RequestMapping("/logout")
 	public String efetuaLogout(HttpSession session){
-		// Invalida a sessão do usuário
+		// Invalida a sessão do usuário		
 		session.invalidate();
 		return "redirect:formLogin";
 	}
 	
 	@RequestMapping("/formUsuario")
 	public String formUsuario(){
+		System.out.println(1/0);
 		return "usuario/formulario-usuario";
 	}
 	
