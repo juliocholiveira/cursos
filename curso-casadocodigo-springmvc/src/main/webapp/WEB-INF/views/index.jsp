@@ -4,7 +4,8 @@
 <head>
 <meta charset="utf-8">
 <body>
-	<h2>Hello World!!!</h2>	
+	<h2>Hello World!!!</h2>
+	<a href="<c:url value="/produtos"/>">Lista de Produtos</a>	
 	<a href="<c:url value="/produtos/form"/>">Cadastro do Produto</a>
 </body>
 </html>

@@ -11,7 +11,8 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 		<!-- Lista todas as entidades mapeadas -->
-		<class>br.com.casadocodigo.loja.model.Tarefa</class>
+		<class>br.com.casadocodigo.loja.model.Product</class>
+		<class>br.com.casadocodigo.loja.model.Price</class>
 
 		<properties>
 			<!-- propriedades do Hibernate -->

@@ -2,13 +2,13 @@ package br.com.casadocodigo.loja.model;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Min;
 
 @Embeddable
 public class Price {
 
-	@Column(scale = 2)
+	@Min(1)
 	private BigDecimal value;
 	private BookType bookType;
 

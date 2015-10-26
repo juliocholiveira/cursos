@@ -25,7 +25,7 @@ public class HomeController {
 		 * https://tomcat.apache
 		 * .org/tomcat-7.0-doc/servletapi/constant-values.html
 		 * 
-		 * Neste aqui encontra-se todos os códigos de erros HTTP
+		 * Neste aqui encontra-se todos os cï¿½digos de erros HTTP
 		 * http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
 		 */
 
@@ -42,7 +42,7 @@ public class HomeController {
 
 		switch (codigoErro) {
 		case 404:
-			mensagem = "Não encontrato";
+			mensagem = "NÃ£o encontrato";
 			break;
 		case 500:
 			mensagem = "Erro interno do servidor";

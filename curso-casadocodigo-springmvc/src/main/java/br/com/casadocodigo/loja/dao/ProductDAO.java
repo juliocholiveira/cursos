@@ -8,12 +8,14 @@ import br.com.casadocodigo.loja.model.Product;
 
 @Repository
 public class ProductDAO extends GenericDAO<Product> {
-	
+
 	public ProductDAO() {
 	}
 
-	public List<Product> lista() {
-		return manager.createQuery("select p from Product p").getResultList();
+	public List<Product> list() {
+		return manager.createQuery(
+				"select distinct(p) from Product p join fetch p.prices",
+				Product.class).getResultList();
 	}
 
 	public Product buscaPorId(Long id) {
