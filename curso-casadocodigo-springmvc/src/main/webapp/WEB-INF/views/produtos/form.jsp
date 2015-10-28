@@ -29,8 +29,11 @@
 
 	<!-- A vantagem é que, caso você queira mudar a URL do seu controller, 
 		 você não precisará mudar os links da sua página. -->
-	<form:form action='${spring:mvcUrl("saveProduct").build()}'
-		method="post" commandName="product">
+	<form:form 
+		action='${spring:mvcUrl("saveProduct").build()}'
+		method="post" 
+		commandName="product"
+		enctype="multipart/form-data">
 
 		<div>
 			<label for="title">Titulo</label>
@@ -48,9 +51,9 @@
 			<form:errors path="pages" cssClass="error" />
 		</div>
 		<div>
-			<label for="releaseDate">Data de lançamento</label> <input
-				type="date" name="releaseDate" />
-			<form:errors path="releaseDate" />
+			<label for="releaseDate">Data de lançamento</label> 
+			<form:input path="releaseDate" type="date" />
+			<form:errors path="releaseDate" cssClass="error" />
 		</div>
 		<c:forEach items="${types}" var="bookType" varStatus="status">
 			<div>

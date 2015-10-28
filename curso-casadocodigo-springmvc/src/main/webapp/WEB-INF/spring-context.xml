@@ -27,6 +27,24 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
+
+		<!-- “Podemos ensinar ao Spring MVC que queremos que todos os nossos objetos 
+			gerenciados fiquem disponíveis para uso, através da Expression Language.” 
+			Isso permite acessar objetos de sessão como ${sessionScope['scopedTarget.shoppingCart'].quantity}, 
+			desta forma ${shoppingCart.quantity}. Ver a página show.jsp para mais detalhes. -->
+
+		<property name="exposeContextBeansAsAttributes" value="true" />
+
+		<!-- “Com essa alteração o trecho ${shoppingCart} já vai funcionar. Ele 
+			vai usar o nome que está registrado dentro do container do Spring, que por 
+			default é o mesmo da classe. Essa solução até funciona, a única preocupação 
+			é se alguém começar a acessar tudo que é objeto a partir da JSP. Para restringir 
+			um pouco a fanfarra, pode-se liberar apenas alguns objetos para serem expostos.” -->
+		<property name="exposedContextBeanNames">
+			<list>
+				<value>shoppingCart</value>
+			</list>
+		</property>
 	</bean>
 
 	<!-- Configurando um datasource -->
@@ -65,4 +83,31 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="/WEB-INF/messages" />
 	</bean>
+
+	<!-- Configurando conversores -->
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="registerDefaultFormatters" value="false" />
+		<property name="formatters">
+			<set>
+				<bean
+					class="org.springframework.format.number.NumberFormatAnnotationFormatterFactory" />
+			</set>
+		</property>
+		<property name="formatterRegistrars">
+			<set>
+				<bean
+					class="org.springframework.format.datetime.joda.JodaTimeFormatterRegistrar">
+					<property name="dateFormatter">
+						<bean
+							class="org.springframework.format.datetime.joda.DateTimeFormatterFactoryBean">
+							<property name="pattern" value="yyyyMMdd" />
+						</bean>
+					</property>
+				</bean>
+			</set>
+		</property>
+	</bean>
+	
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate"></bean>
 </beans>
