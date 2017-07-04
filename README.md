@@ -1,2 +1,2 @@
-# cursos-java
-Código fonte de cursos java
+# cursos
+Código fonte de cursos
