@@ -11,7 +11,7 @@ public class TesteJPA {
 
 		Conta conta = new Conta();
 		conta.setBanco("Banco do Brasil");
-		conta.setTitular("Júlio César");
+		conta.setTitular("Jï¿½lio Cï¿½sar");
 
 		EntityManager em = new JPAUtil().getEntityManager();
 
@@ -38,7 +38,7 @@ public class TesteJPA {
 		 * ex.: em.persist(conta);
 		 * 
 		 * merge() - Muda o estado de um objeto de "detached" para "managed",
-		 * permitindo que alterações sejam realizadas no objeto
+		 * permitindo que alteraï¿½ï¿½es sejam realizadas no objeto
 		 * 
 		 * ex.: em.merge(conta);
 		 * 
@@ -47,7 +47,7 @@ public class TesteJPA {
 		 * 
 		 * ex.: em.remove(conta);
 		 */
-		
+		https://github.com/juliocholiveira/projetos-java.git
 		/*Conta contaDetached = new Conta();
 		contaDetached.setId(2);
 		contaDetached.setBanco("Caixa");
