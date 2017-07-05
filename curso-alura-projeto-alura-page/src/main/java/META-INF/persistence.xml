@@ -1,0 +1,46 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<!-- unidade de persistência -->
+	<persistence-unit name="projeto-alura-page-mysql">
+
+		<!-- implementação do JPA -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<!-- Lista todas as entidades mapeadas -->
+		<class>br.com.caelum.financas.modelo.Trilha</class>
+		<class>br.com.caelum.financas.modelo.Curso</class>
+		<class>br.com.caelum.financas.modelo.Aula</class>
+
+		<properties>
+			<!-- propriedades JDBC -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/projeto_alura_page" />
+			<property name="javax.persistence.jdbc.user" value="webapp" />
+			<property name="javax.persistence.jdbc.password" value="12345678" />
+
+			<!-- propriedades do Hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+
+			<!-- Através da propriedade hibernate.hbm2ddl.auto podemos automaticamente 
+				validar e exportar o esquema (schema) DDL (Data Definition Language - Linguagem 
+				de Definição de Dados) para o banco de dados quando o EntityManagerFactory 
+				é criado.
+				 
+				Dentre as possíveis estratégias temos:
+				 
+				validate: valida o esquema mas não faz mudanças no banco de dados. 
+				update: cria e atualiza o esquema no banco de dados preservando dados anteriores. 
+				create: cria o esquema destruindo dados anteriores. 
+				create-drop: remove o esquema no final da sessão. -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+
+</persistence>
